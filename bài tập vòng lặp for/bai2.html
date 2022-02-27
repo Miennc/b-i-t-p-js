@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="get" action="">
+        Nhập số: <input type="text" id="number" value="0"/>
+        <input type="button" value="In kết quả" onclick="print_number()"/>
+    </form>
+    <div id="result">
+     
+    </div>
+    <script>
+        // Bài 02: Viết chương trình có một ô input, một button.
+        // Khi click vào button thì in ra các số nguyên tố từ 1 tới giá trị của ô input
+        
+        // hàm kiểm tra số nguyên tố
+        function isPrime(n) {
+            if (n < 2) return false;
+            for (let i = 2; i < n; i++) {
+                if (n % i == 0) return false;
+            }
+            return true;
+        }
+        // hàn in ra các số nguyên tố từ 1 tới giá trị của ô input
+        function print_number() {
+            let html = '';
+            let number = document.getElementById('number').value;
+            for (let i = 1; i <= number; i++) {
+                if (isPrime(i)) {
+                    html += `<p>${i}</p>`;
+                }
+            }
+            document.getElementById('result').innerHTML = html;
+        }
+    </script>
+</body>
+</html>
